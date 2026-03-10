@@ -40,7 +40,7 @@ export default function ProjectsSection({
         </div>
 
         {/* View All Link */}
-        {!showAll && (
+        {!showAll && maxProjects && (
           <div className="mt-12 text-center">
             <Link
               href="/work"
