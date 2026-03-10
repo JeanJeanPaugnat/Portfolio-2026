@@ -3,7 +3,7 @@ import SocialLinks from "../ui/SocialLinks";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-[#0059ff] to-[#19253b] text-white overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-b from-[#0059ff] to-[#19253b] text-white overflow-hidden -mt-24 pt-24">
       {/* Content Container */}
       <div className="container mx-auto px-6 md:px-24 pt-32 md:pt-48 pb-16">
         {/* Location */}

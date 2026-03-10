@@ -6,8 +6,8 @@ import Footer from "./component/sections/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Header with NavBar - positioned over the hero */}
-      <header className="absolute top-0 left-0 right-0 z-50 p-4 md:p-6">
+      {/* Header with NavBar - sticky */}
+      <header className="sticky top-0 z-50 p-4 md:p-6 bg-transparent">
         <NavBar />
       </header>
 

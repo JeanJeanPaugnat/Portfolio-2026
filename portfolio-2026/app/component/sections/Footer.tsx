@@ -10,8 +10,8 @@ const primaryLinks = [
 
 const contactLinks = [
   { href: "https://linkedin.com/in/jeanpaugnat", label: "LinkedIn" },
-  { href: "https://instagram.com/jeanpaugnat", label: "Instagram" },
-  { href: "mailto:contact@jeanpaugnat.dev", label: "Mail" },
+  { href: "https://github.com/JeanJeanPaugnat", label: "GitHub" },
+  { href: "mailto:jeanpaugnat87@gmail.com", label: "Mail" },
 ];
 
 export default function Footer() {
