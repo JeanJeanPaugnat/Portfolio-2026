@@ -52,9 +52,9 @@ export const projects: Project[] = [
           "Toujours dans une logique d'evolution, j'explore l'integration de l'intelligence artificielle dans SketchShop. J'utilise TensorFlow.js pour experimenter des fonctionnalites d'assistance au dessin et de retouche intelligente.\n\nL'objectif est de transformer l'application en laboratoire creatif melant standards de la PAO, machine learning et technologies web modernes.",
       },
     ],
-    thumbnail: "",
+    thumbnail: "/thumbnail/sketchshop.png",
     images: [],
-    skills: [
+    skills: [   
       { category: "Langages", items: ["HTML", "CSS", "JavaScript"] },
       {
         category: "Frameworks",
@@ -77,6 +77,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/JeanJeanPaugnat/SketchShop-P5",
     featured: true,
   },
+
   {
     id: "2",
     slug: "holobarista",
@@ -99,7 +100,7 @@ export const projects: Project[] = [
           "Le gameplay repose sur une difficulte progressive, des commandes variees, un inventaire d'ingredients a debloquer et un systeme de score.\n\nPour la persistance et le suivi des profils, j'ai utilise Supabase avec PostgreSQL, tandis que Vercel prenait en charge l'hebergement et le deploiement continu du projet.",
       },
     ],
-    thumbnail: "",
+    thumbnail: "/thumbnail/holo-barista.png",
     images: [],
     skills: [
       { category: "Langages", items: ["HTML", "CSS", "JavaScript"] },
@@ -131,6 +132,7 @@ export const projects: Project[] = [
     collaborators: ["Wahel", "Manon"],
     featured: true,
   },
+
   {
     id: "3",
     slug: "click-collect-louis-vuitton",
@@ -153,7 +155,7 @@ export const projects: Project[] = [
           "Le projet repose sur un front-end en Vite et Tailwind CSS afin d'obtenir une interface reactive et fidele aux maquettes. Cote back-end, j'ai approfondi PHP avec une gestion avancee des cookies de session pour maintenir l'etat utilisateur.\n\nJ'ai egalement structure une architecture API REST pour gerer dynamiquement le catalogue, les filtres, le panier et les commandes, ainsi que la base de donnees MySQL via phpMyAdmin.",
       },
     ],
-    thumbnail: "",
+    thumbnail: "/thumbnail/click-collect.png",
     images: [],
     skills: [
       {
@@ -184,6 +186,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/JeanJeanPaugnat/Click-Collect-Louis-Vuitton",
     featured: true,
   },
+
   {
     id: "4",
     slug: "astro-skills",
@@ -206,7 +209,7 @@ export const projects: Project[] = [
           "Sur le plan technique, je me suis appuye sur SVG pour structurer le systeme visuel et GSAP pour produire des rotations fluides, des animations et des transitions lors des interactions.\n\nCe projet m'a permis de demontrer ma capacite a extraire l'essentiel d'un jeu de donnees et a le traduire en visualisation utile, lisible et creative.",
       },
     ],
-    thumbnail: "",
+    thumbnail: "/thumbnail/astroskills.png",
     images: [],
     skills: [
       {
@@ -236,6 +239,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/JeanJeanPaugnat/Solar-Skill-System",
     featured: true,
   },
+
   {
     id: "5",
     slug: "nuit-mmi",
@@ -258,7 +262,7 @@ export const projects: Project[] = [
           "L'experience s'articulait autour de quatre concepts developpes en un temps record : Move & React, Cowboy du Duel, Color Lines et Plumber Puzzle.\n\nCe projet m'a permis de prouver ma capacite a livrer un produit fonctionnel, creatif et techniquement ambitieux dans un delai extremement court.",
       },
     ],
-    thumbnail: "",
+    thumbnail: "/thumbnail/nuit-mmi.png",
     images: [],
     skills: [
       { category: "Langages", items: ["HTML", "CSS", "JavaScript"] },
@@ -284,6 +288,7 @@ export const projects: Project[] = [
     collaborators: ["Owen", "Nina", "Enguerran", "Nathan"],
     featured: true,
   },
+
   {
     id: "6",
     slug: "la-cinetek",
@@ -300,8 +305,8 @@ export const projects: Project[] = [
         content:
           "En parallele, j'ai concu une interface d'administration permettant de piloter le site client. Cet outil sert a ajouter des films, gerer les profils et moderer les commentaires avant publication.\n\nCe travail m'a permis de maitriser les operations CRUD, indispensables a toute application connectee a des donnees structurees.",
         images: [
-          "/public/test1.jpg",
-          "/public/test2.jpg",
+          "/test1.jpg",
+          "/test2.jpg",
         ],
         },
       
@@ -311,7 +316,7 @@ export const projects: Project[] = [
           "Au cours du projet, j'ai du respecter le design system de LaCinetek, plateforme de VOD dediee aux films de patrimoine. L'enjeu etait de retranscrire fidelement cette charte graphique tout en adaptant l'UI et l'UX lorsque cela etait pertinent.\n\nCe projet m'a aussi fait progresser sur l'automatisation de la production de pages grace a l'injection dynamique de donnees JSON plutot qu'au code en dur.",
         },
     ],
-    thumbnail: "",
+    thumbnail: "/thumbnail/lacinetek.png",
     images: [],
     skills: [
       {
@@ -335,42 +340,7 @@ export const projects: Project[] = [
     liveUrl: "https://jeanjeanpaugnat.github.io/Cinetek/203-finished/client/",
     githubUrl: "https://github.com/JeanJeanPaugnat/Cinetek",
     featured: true,
-  },
-  {
-    id: "7",
-    slug: "nuit-mmi-showcase",
-    title: "Nuit MMI Showcase",
-    category: "Static Site",
-    date: "2024",
-    shortDescription:
-      "La vitrine web du projet Nuit MMI, distincte de l'experience de jeu accessible via une page dediee.",
-    about:
-      "En complement du jeu principal, j'ai participe a la realisation du site de presentation de Nuit MMI afin de structurer la communication autour du projet, de son univers et de ses objectifs.\n\nCette partie permettait de contextualiser l'experience, d'introduire le challenge et de rendre le projet comprehensible des la premiere visite.",
-    contentSections: [
-      {
-        title: "Presentation du Concept",
-        content:
-          "Le site statique presentait la demarche globale, les intentions de design et la proposition de valeur du dispositif interactif developpe pendant le challenge.\n\nIl devait etre rapide a parcourir, clair, et servir de point d'entree pour comprendre le projet sans lancer immediatement le jeu.",
-      },
-      {
-        title: "Articulation avec le Jeu",
-        content:
-          "Cette vitrine venait completer la page de jeu en offrant une navigation plus editoriale autour du projet. Elle jouait donc un role different, plus narratif, dans l'ecosysteme global de Nuit MMI.\n\nJe garde ce projet separe ici car il correspond bien a un livrable web distinct, meme s'il est lie au meme challenge.",
-      },
-    ],
-    thumbnail: "",
-    images: [],
-    skills: [
-      { category: "Langages", items: ["HTML", "CSS", "JavaScript"] },
-      { category: "Frameworks", items: ["Static Web"] },
-      { category: "Outils", items: ["Vercel", "Git"] },
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "Vercel", "Git"],
-    year: 2024,
-    liveUrl: "https://nuit-mmi.vercel.app/",
-    collaborators: ["Owen", "Nina", "Enguerran", "Nathan"],
-    featured: true,
-  },
+  }
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
