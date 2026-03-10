@@ -18,6 +18,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             src={project.thumbnail}
             alt={project.title}
             fill
+            unoptimized
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (

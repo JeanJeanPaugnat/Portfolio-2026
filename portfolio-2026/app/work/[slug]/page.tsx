@@ -126,6 +126,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               src={project.thumbnail}
               alt={project.title}
               fill
+              unoptimized
               className="object-cover"
               priority
             />

@@ -31,6 +31,7 @@ function ImageRow({ images, alt }: ImageGalleryProps) {
             src={image}
             alt={`${alt} - ${index + 1}`}
             fill
+            unoptimized
             className="object-cover"
           />
         </div>
@@ -77,6 +78,7 @@ function Carousel({ images, alt }: ImageGalleryProps) {
               src={image}
               alt={`${alt} - ${index + 1}`}
               fill
+              unoptimized
               className="object-cover"
             />
           </div>
