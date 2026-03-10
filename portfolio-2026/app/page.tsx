@@ -1,6 +1,7 @@
 import NavBar from "./component/ui/NavBar";
 import HeroSection from "./component/sections/HeroSection";
 import ProjectsSection from "./component/sections/ProjectsSection";
+import Footer from "./component/sections/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
 
       {/* Featured Projects */}
       <ProjectsSection maxProjects={4} />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

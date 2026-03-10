@@ -9,6 +9,7 @@ import {
 } from "@/app/data/projects";
 import NavBar from "@/app/component/ui/NavBar";
 import Button from "@/app/component/ui/Button";
+import Footer from "@/app/component/sections/Footer";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -211,6 +212,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </nav>
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

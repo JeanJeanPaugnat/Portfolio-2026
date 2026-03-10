@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import NavBar from "../component/ui/NavBar";
 import ProjectsSection from "../component/sections/ProjectsSection";
+import Footer from "../component/sections/Footer";
 
 export const metadata: Metadata = {
   title: "Projets | Jean Paugnat",
@@ -18,6 +19,9 @@ export default function WorkPage() {
 
       {/* All Projects */}
       <ProjectsSection showAll />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
