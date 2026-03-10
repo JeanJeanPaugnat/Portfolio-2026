@@ -23,12 +23,10 @@ export default function ProjectsSection({
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12 md:mb-16">
           <h2 className="font-[Crimson_Text] italic text-6xl md:text-8xl lg:text-[128px] text-black uppercase leading-none">
-            Projects
+            Projets
           </h2>
-          <p className="font-[Crimson_Text] text-base text-black max-w-md md:pt-8">
-            Retrouve ici l&apos;ensemble de mes projets. Chaque réalisation
-            traduit une intention différente, entre direction artistique,
-            expérimentation technique et production web.
+          <p className="font-[Crimson_Text] text-xl text-black max-w-md md:pt-8">
+            Retrouve ici l&apos;ensemble de mes projets. Je developpe des solutions web alliant design et fonctionnalite.
           </p>
         </div>
 

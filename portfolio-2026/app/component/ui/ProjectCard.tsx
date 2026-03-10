@@ -8,7 +8,9 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="border border-[#717171] flex flex-col overflow-hidden group">
+    <Link
+        href={`/work/${project.slug}`}
+     className="rounded-[16px] border border-[#717171] flex flex-col overflow-hidden group hover:shadow-lg transition-shadow">
       {/* Thumbnail */}
       <div className="relative h-[280px] md:h-[369px] bg-[#e9e9e9] overflow-hidden">
         {project.thumbnail ? (
@@ -28,16 +30,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <h3 className="font-[Funnel_Display] font-semibold text-lg md:text-2xl text-black uppercase leading-tight">
           {project.title}
         </h3>
+        <p className="font-[Funnel_Display] mt-3 text-base text-[#717171]">
+          {project.shortDescription}
+        </p>
 
-        <Link
-          href={`/work/${project.slug}`}
-          className="inline-flex items-center px-4 py-2 bg-white rounded-full border border-[#717171] hover:bg-black hover:text-white transition-colors w-fit"
-        >
-          <span className="font-[Crimson_Text] italic text-sm md:text-base uppercase">
-            Open the project
-          </span>
-        </Link>
       </div>
-    </article>
+    </Link>
   );
 }

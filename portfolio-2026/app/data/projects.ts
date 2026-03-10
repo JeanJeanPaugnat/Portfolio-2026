@@ -134,7 +134,7 @@ export const projects: Project[] = [
   {
     id: "3",
     slug: "click-collect-louis-vuitton",
-    title: "Click & Collect",
+    title: "Click & Collect LV",
     category: "Full Stack",
     date: "2024",
     shortDescription:
