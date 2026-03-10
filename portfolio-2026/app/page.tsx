@@ -14,8 +14,8 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Featured Projects */}
-      <ProjectsSection maxProjects={4} />
+      {/* All Projects */}
+      <ProjectsSection />
 
       {/* Footer */}
       <Footer />

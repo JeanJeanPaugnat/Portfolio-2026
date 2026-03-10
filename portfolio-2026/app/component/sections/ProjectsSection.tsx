@@ -1,4 +1,4 @@
-import { projects, getFeaturedProjects, Project } from "@/app/data/projects";
+import { projects, Project } from "@/app/data/projects";
 import ProjectCard from "../ui/ProjectCard";
 import Link from "next/link";
 
@@ -14,8 +14,8 @@ export default function ProjectsSection({
   const displayProjects: Project[] = showAll
     ? projects
     : maxProjects
-      ? getFeaturedProjects().slice(0, maxProjects)
-      : getFeaturedProjects();
+      ? projects.slice(0, maxProjects)
+      : projects;
 
   return (
     <section className="bg-white py-16 md:py-24">
@@ -26,9 +26,9 @@ export default function ProjectsSection({
             Projects
           </h2>
           <p className="font-[Crimson_Text] text-base text-black max-w-md md:pt-8">
-            Découvrez une sélection de mes projets récents. Chaque réalisation
-            représente un défi unique et une opportunité d&apos;innover avec les
-            dernières technologies web.
+            Retrouve ici l&apos;ensemble de mes projets. Chaque réalisation
+            traduit une intention différente, entre direction artistique,
+            expérimentation technique et production web.
           </p>
         </div>
 
