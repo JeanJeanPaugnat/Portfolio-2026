@@ -2,13 +2,14 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowDown } from "lucide-react";
 import {
   getProjectBySlug,
   getAllProjectSlugs,
   projects,
 } from "@/app/data/projects";
 import NavBar from "@/app/component/ui/NavBar";
-import Button from "@/app/component/ui/Button";
+import ImageGallery from "@/app/component/ui/ImageGallery";
 import Footer from "@/app/component/sections/Footer";
 
 interface ProjectPageProps {
@@ -62,31 +63,64 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <NavBar />
       </header>
 
-      <main className="container mx-auto px-6 md:px-24 py-12 md:py-20">
-        {/* Back Link */}
-        <Link
-          href="/work"
-          className="inline-flex items-center gap-2 font-[Funnel_Display] text-black hover:text-[#0059ff] transition-colors mb-8"
-        >
-          <span aria-hidden="true">←</span>
-          Retour aux projets
-        </Link>
-
+      <main>
         {/* Project Header */}
-        <header className="mb-12">
-          <p className="font-[Funnel_Display] text-[#717171] text-lg mb-4">
-            {project.year}
-          </p>
-          <h1 className="font-[Crimson_Text] italic text-4xl md:text-6xl lg:text-7xl text-black uppercase leading-tight mb-6">
+        <section className="px-6 md:px-24 pt-10 pb-8">
+          {/* Category | Date */}
+          <div className="flex items-center gap-4 mb-2">
+            <span className="font-[Funnel_Display] text-2xl md:text-3xl text-black uppercase">
+              {project.category}
+            </span>
+            <span className="text-black text-2xl">|</span>
+            <span className="font-[Funnel_Display] text-2xl md:text-3xl text-black uppercase">
+              {project.date}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h1 className="font-[Crimson_Text] italic text-6xl md:text-8xl lg:text-[128px] text-black uppercase leading-none mb-4">
             {project.title}
           </h1>
-          <p className="font-[Funnel_Display] text-xl md:text-2xl text-[#717171] max-w-3xl">
-            {project.shortDescription}
-          </p>
-        </header>
+
+          {/* Buttons */}
+          <div className="flex items-center gap-4">
+            {project.liveUrl && (
+              <Link
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#0059ff] px-5 py-2.5 rounded-lg font-[Funnel_Display] font-bold text-lg md:text-xl text-white uppercase hover:bg-[#0047cc] transition-colors"
+              >
+                Voir le site
+              </Link>
+            )}
+            {project.githubUrl && (
+              <Link
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-3 border-[#1a1a1a] px-5 py-2.5 rounded-lg font-[Funnel_Display] font-bold text-lg md:text-xl text-[#1a1a1a] uppercase hover:bg-[#1a1a1a] hover:text-white transition-colors"
+              >
+                Code source
+              </Link>
+            )}
+          </div>
+        </section>
+
+        {/* À propos */}
+        <section className="px-6 md:px-24 py-12">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+            <h2 className="font-[Funnel_Display] text-2xl md:text-3xl text-black shrink-0">
+              À propos
+            </h2>
+            <div className="font-[Funnel_Display] text-base text-black max-w-xl whitespace-pre-line leading-relaxed">
+              {project.about}
+            </div>
+          </div>
+        </section>
 
         {/* Main Image */}
-        <div className="relative w-full h-[300px] md:h-[500px] lg:h-[600px] bg-[#e9e9e9] mb-12">
+        <div className="w-full h-96 md:h-[604px] bg-[#d9d9d9] relative">
           {project.thumbnail && (
             <Image
               src={project.thumbnail}
@@ -98,97 +132,76 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
 
-        {/* Project Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-          {/* Description */}
-          <div className="lg:col-span-2">
-            <h2 className="font-[Funnel_Display] font-semibold text-2xl text-black uppercase mb-6">
-              À propos du projet
-            </h2>
-            <p className="font-[Funnel_Display] text-lg text-[#333] leading-relaxed">
-              {project.fullDescription}
-            </p>
-          </div>
+        {/* Content Sections interleaved with Image Rows */}
+        {project.contentSections.map((section, index) => (
+          <div key={index}>
+            <section className="px-6 md:px-24 py-12">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                <h2 className="font-[Funnel_Display] text-2xl md:text-3xl text-black max-w-xs md:max-w-sm shrink-0">
+                  {section.title}
+                </h2>
+                <div className="font-[Funnel_Display] text-base text-black max-w-xl whitespace-pre-line leading-relaxed">
+                  {section.content}
+                </div>
+              </div>
+            </section>
 
-          {/* Sidebar */}
-          <div className="space-y-8">
-            {/* Technologies */}
-            <div>
-              <h3 className="font-[Funnel_Display] font-semibold text-lg text-black uppercase mb-4">
-                Technologies
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-[#f5f5f5] text-sm font-[Funnel_Display] text-black rounded"
-                  >
-                    {tech}
-                  </span>
+            {/* Image row / carousel after this section */}
+            {section.images && section.images.length > 0 && (
+              <ImageGallery images={section.images} alt={`${project.title} - ${section.title}`} />
+            )}
+          </div>
+        ))}
+
+        {/* Collaborators */}
+        {project.collaborators && project.collaborators.length > 0 && (
+          <section className="px-6 md:px-24 py-12">
+            <h2 className="font-[Crimson_Text] italic text-3xl md:text-5xl text-black uppercase leading-tight">
+              Work done with these people:
+            </h2>
+            <p className="font-[Funnel_Display] text-xl md:text-2xl text-black uppercase mt-1">
+              {project.collaborators.join(", ")}
+            </p>
+          </section>
+        )}
+
+        {/* Skills Used */}
+        {project.skills.length > 0 && (
+          <section className="px-6 md:px-24 py-10">
+            <div className="border-t border-black pt-10 flex flex-col md:flex-row md:items-start md:justify-between gap-8 uppercase">
+              <h2 className="font-[Crimson_Text] italic font-bold text-xl md:text-2xl text-black shrink-0">
+                Skills Used
+              </h2>
+              <div className="flex flex-wrap gap-16 md:gap-24">
+                {project.skills.map((skill) => (
+                  <div key={skill.category} className="flex flex-col gap-3">
+                    <h3 className="font-[Funnel_Display] text-xl md:text-2xl text-black">
+                      {skill.category}
+                    </h3>
+                    <ul className="flex flex-col gap-2 font-[Funnel_Display] font-medium text-lg md:text-xl text-[#919191]">
+                      {skill.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
-            </div>
-
-            {/* Links */}
-            <div className="space-y-3">
-              {project.liveUrl && (
-                <Button
-                  href={project.liveUrl}
-                  variant="primary"
-                  className="w-full justify-center"
-                >
-                  Voir le site
-                </Button>
-              )}
-              {project.githubUrl && (
-                <Button
-                  href={project.githubUrl}
-                  variant="outline"
-                  className="w-full justify-center !text-black !border-black hover:!bg-black hover:!text-white"
-                >
-                  Code source
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Project Gallery */}
-        {project.images.length > 0 && (
-          <section className="mb-16">
-            <h2 className="font-[Funnel_Display] font-semibold text-2xl text-black uppercase mb-8">
-              Galerie
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.images.map((image, index) => (
-                <div
-                  key={index}
-                  className="relative h-[250px] md:h-[350px] bg-[#e9e9e9]"
-                >
-                  <Image
-                    src={image}
-                    alt={`${project.title} - Image ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
             </div>
           </section>
         )}
 
-        {/* Navigation */}
-        <nav className="border-t border-[#e5e5e5] pt-8">
-          <div className="flex justify-between items-center">
+        {/* Prev / Next Navigation */}
+        <section className="px-6 md:px-24 py-8">
+          <div className="flex justify-between items-start pt-10">
             {prevProject ? (
               <Link
                 href={`/work/${prevProject.slug}`}
                 className="group flex flex-col"
               >
-                <span className="font-[Funnel_Display] text-sm text-[#717171] mb-1">
+                <span className="font-[Funnel_Display] font-medium text-lg md:text-xl text-[#919191]">
                   ← Projet précédent
                 </span>
-                <span className="font-[Crimson_Text] italic text-lg text-black group-hover:text-[#0059ff] transition-colors">
+                <span className="font-[Crimson_Text] italic capitalize text-3xl md:text-5xl text-black group-hover:text-[#0059ff] transition-colors">
                   {prevProject.title}
                 </span>
               </Link>
@@ -199,18 +212,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {nextProject ? (
               <Link
                 href={`/work/${nextProject.slug}`}
-                className="group flex flex-col text-right"
+                className="group flex flex-col items-end text-right"
               >
-                <span className="font-[Funnel_Display] text-sm text-[#717171] mb-1">
+                <span className="font-[Funnel_Display] font-medium text-lg md:text-xl text-[#919191]">
                   Projet suivant →
                 </span>
-                <span className="font-[Crimson_Text] italic text-lg text-black group-hover:text-[#0059ff] transition-colors">
+                <span className="font-[Crimson_Text] italic capitalize text-3xl md:text-5xl text-black group-hover:text-[#0059ff] transition-colors">
                   {nextProject.title}
                 </span>
               </Link>
             ) : null}
           </div>
-        </nav>
+        </section>
+
+        {/* Back to all projects */}
+        <section className="py-12 flex flex-col items-center gap-2">
+          <ArrowDown className="w-6 h-6 text-black" />
+          <Link
+            href="/work"
+            className="font-[Crimson_Text] text-3xl md:text-5xl text-black uppercase hover:text-[#0059ff] transition-colors"
+          >
+            Back to Other Projects
+          </Link>
+        </section>
       </main>
 
       {/* Footer */}
