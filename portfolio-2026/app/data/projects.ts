@@ -19,7 +19,6 @@ export interface Project {
   about: string;
   contentSections: ContentSection[];
   thumbnail: string;
-  images: string[];
   skills: SkillCategory[];
   technologies: string[];
   year: number;
@@ -53,7 +52,6 @@ export const projects: Project[] = [
       },
     ],
     thumbnail: "/thumbnail/sketchshop.png",
-    images: [],
     skills: [   
       { category: "Langages", items: ["HTML", "CSS", "JavaScript"] },
       {
@@ -101,7 +99,6 @@ export const projects: Project[] = [
       },
     ],
     thumbnail: "/thumbnail/holo-barista.png",
-    images: [],
     skills: [
       { category: "Langages", items: ["HTML", "CSS", "JavaScript"] },
       {
@@ -148,15 +145,16 @@ export const projects: Project[] = [
         title: "Analyse et Conception UX/UI",
         content:
           "Avant le developpement, j'ai defini les fonctionnalites prioritaires via des user stories afin d'encadrer le MVP pour la partie client comme pour le back-office.\n\nJ'ai ensuite analyse et retranscrit la charte graphique de Louis Vuitton avant de concevoir l'ensemble des interfaces sous Figma avec une attention particuliere a l'experience utilisateur.",
-      },
+        images: ["/collection/collect-click/paysage-1.jpg", "/collection/collect-click/paysage-2.jpg"],
+        },
       {
         title: "Developpement Full Stack",
         content:
           "Le projet repose sur un front-end en Vite et Tailwind CSS afin d'obtenir une interface reactive et fidele aux maquettes. Cote back-end, j'ai approfondi PHP avec une gestion avancee des cookies de session pour maintenir l'etat utilisateur.\n\nJ'ai egalement structure une architecture API REST pour gerer dynamiquement le catalogue, les filtres, le panier et les commandes, ainsi que la base de donnees MySQL via phpMyAdmin.",
-      },
+      images: ["/collection/collect-click/profil-1.jpg", "/collection/collect-click/profil-2.jpg", "/collection/collect-click/profil-3.jpg"],
+        },
     ],
     thumbnail: "/thumbnail/click-collect.png",
-    images: [],
     skills: [
       {
         category: "Langages",
@@ -210,7 +208,6 @@ export const projects: Project[] = [
       },
     ],
     thumbnail: "/thumbnail/astroskills.png",
-    images: [],
     skills: [
       {
         category: "Langages",
@@ -263,7 +260,6 @@ export const projects: Project[] = [
       },
     ],
     thumbnail: "/thumbnail/nuit-mmi.png",
-    images: [],
     skills: [
       { category: "Langages", items: ["HTML", "CSS", "JavaScript"] },
       { category: "Frameworks", items: ["ML5.js", "p5.play.js"] },
@@ -317,7 +313,6 @@ export const projects: Project[] = [
         },
     ],
     thumbnail: "/thumbnail/lacinetek.png",
-    images: [],
     skills: [
       {
         category: "Langages",
