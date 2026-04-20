@@ -5,11 +5,10 @@ import Footer from "./component/sections/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Header with NavBar - sticky */}
-      <header className="sticky top-0 z-50 p-4 md:p-6 bg-transparent">
         <NavBar />
-      </header>
+
 
       {/* Hero Section */}
       <HeroSection />
