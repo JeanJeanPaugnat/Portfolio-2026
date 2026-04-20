@@ -1,43 +1,48 @@
 import Button from "../ui/Button";
+import CanvasBackground from "../ui/CanvasBackground";
 import SocialLinks from "../ui/SocialLinks";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-[#0059ff] to-[#19253b] text-white overflow-hidden -mt-24 pt-24">
-      {/* Content Container */}
-      <div className="container mx-auto px-6 md:px-24 pt-32 md:pt-48 pb-16">
-        {/* Location */}
-        <p className="font-[Funnel_Display] font-light text-lg md:text-xl capitalize mb-8">
-          Based in Limoges, FR
-        </p>
+    <div className=" px-8 py-8 bg-white">
+      <section className="relative min-h-screen bg-linear-to-b from-[#0059ff] to-[#19253b] text-white overflow-hidden rounded-3xl ">
+        <CanvasBackground/>
 
-        {/* Main Title */}
-        <h1 className="font-[Crimson_Text] italic text-5xl md:text-7xl lg:text-[76px] uppercase leading-[85%] max-w-lg mb-8">
-          Creative web Developer
-        </h1>
+        {/* Content Container */}
+        <div className="container relative z-10 mx-auto px-6 md:px-24 pt-32 md:pt-48 pb-16">
+          {/* Location */}
+          <p className="font-[Funnel_Display] font-light text-lg md:text-xl capitalize mb-8">
+            Based in Limoges, FR
+          </p>
 
-        {/* Description */}
-        <p className="font-[Funnel_Display] font-light text-lg md:text-2xl max-w-3xl leading-relaxed mb-16">
-          Salut, moi c&apos;est Jean Paugnat. Étudiant en BUT MMI et
-          développeur. Je transforme des concepts créatifs en applications web
-          performantes et interactives.
-        </p>
+          {/* Main Title */}
+          <h1 className="font-[Crimson_Text] italic text-5xl md:text-7xl lg:text-[76px] uppercase leading-[85%] max-w-lg mb-8">
+            Creative web Developer
+          </h1>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center gap-4 mb-24">
-          <Button href="/work" variant="primary">
-            View my work
-          </Button>
-          <Button href="/cv.pdf" variant="outline" download>
-            Download CV
-          </Button>
+          {/* Description */}
+          <p className="font-[Funnel_Display] font-light text-lg md:text-2xl max-w-3xl leading-relaxed mb-16">
+            Salut, moi c&apos;est Jean Paugnat. Étudiant en BUT MMI et
+            développeur. Je transforme des concepts créatifs en applications web
+            performantes et interactives.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-4 mb-24">
+            <Button href="/work" variant="primary">
+              View my work
+            </Button>
+            <Button href="/cv.pdf" variant="outline" download>
+              Download CV
+            </Button>
+          </div>
         </div>
-      </div>
 
-      {/* Social Links - Bottom Right */}
-      <div className="absolute bottom-8 right-8 md:right-24">
-        <SocialLinks />
-      </div>
-    </section>
+        {/* Social Links - Bottom Right */}
+        <div className="absolute bottom-8 right-8 z-10 md:right-24">
+          <SocialLinks />
+        </div>
+      </section>
+    </div>
   );
 }
