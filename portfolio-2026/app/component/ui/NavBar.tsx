@@ -11,7 +11,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="bg-[#fdfdfd] flex items-center justify-between px-6 md:px-20 py-5 md:py-7 rounded-full shadow-sm font-[Funnel_Display]">
+    <nav className="bg-[#fdfdfd] mx-6 my-6 sticky top-0 z-50 flex items-center justify-between px-6 md:px-20 py-5 md:py-7 rounded-full shadow-sm font-[Funnel_Display]">
       {/* Logo / Name */}
       <Link
         href="/"
