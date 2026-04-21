@@ -1,9 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Button from "./Button";
 
 export default function NavBar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/work", label: "Work" },
@@ -11,7 +22,11 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="bg-[#fdfdfd] mx-6 my-6 sticky top-0 z-50 flex items-center justify-between px-6 md:px-20 py-5 md:py-7 rounded-full shadow-sm font-[Funnel_Display]">
+    <nav
+      className={`bg-[#fdfdfd] my-6 sticky top-0 z-50 flex items-center justify-between px-6 md:px-20 py-5 md:py-7 rounded-full shadow-sm font-[Funnel_Display] transition-all duration-500 ease-in-out ${
+        scrolled ? "mx-10 md:mx-20" : "mx-4 md:mx-6"
+      }`}
+    >
       {/* Logo / Name */}
       <Link
         href="/"
